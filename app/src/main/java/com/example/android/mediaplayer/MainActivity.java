@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Create an arrayList of
-        ArrayList<Song> songs = new ArrayList<Song>();
+        final ArrayList<Song> songs = new ArrayList<Song>();
         songs.add(new Song("My Jam","Daniel"));
         songs.add(new Song("title", "artist"));
         songs.add(new Song("three", "tolookosu"));
@@ -32,9 +32,23 @@ public class MainActivity extends AppCompatActivity {
         songs.add(new Song("nine", "wo'e"));
         songs.add(new Song("ten", "na'aacha"));
 
-        SongAdapter adapter = new SongAdapter(this, songs);
+        final SongAdapter adapter = new SongAdapter(this, songs);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+        //When user clicks on a song, it takes them to the Currently Playing screen.
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+
+                Song currentSong = songs.get(i);
+
+                Intent currentlyPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                currentlyPlayingIntent.putExtra("songTitle", currentSong.getSongTitle());
+                currentlyPlayingIntent.putExtra("songArtist", currentSong.getSongArtist());
+                startActivity(currentlyPlayingIntent);
+            }
+        });
 
         //adapter.setCustomOnClickListener(R.id.list_item, NowPlayingActivity.class);
         //adapter.setCustomOnClickListener(listView.getAdapter().,NowPlayingActivity.class,listView);
