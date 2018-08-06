@@ -36,39 +36,16 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(adapter);
 
-        //When user clicks on a song, it takes them to the Currently Playing screen.
+        //When user clicks on a song, it takes them to the NowPlayingActivity.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-
-                Song currentSong = songs.get(i);
-
-                Intent currentlyPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
-                currentlyPlayingIntent.putExtra("songTitle", currentSong.getSongTitle());
-                currentlyPlayingIntent.putExtra("songArtist", currentSong.getSongArtist());
-                startActivity(currentlyPlayingIntent);
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
+                Song currentSong = songs.get(index);
+                Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                nowPlayingIntent.putExtra("songTitle", currentSong.getSongTitle());
+                nowPlayingIntent.putExtra("songArtist", currentSong.getSongArtist());
+                startActivity(nowPlayingIntent);
             }
         });
-
-        //adapter.setCustomOnClickListener(R.id.list_item, NowPlayingActivity.class);
-        //adapter.setCustomOnClickListener(listView.getAdapter().,NowPlayingActivity.class,listView);
-    }
-
-    public void setCustomOnClickListener(int resourceID, final Class className) {
-        // Find the View that shows the numbers category
-        View view = findViewById(resourceID);
-
-        // Set a click listener on  that View
-        if (view != null) {
-            view.setOnClickListener(
-                    new OnClickListener() {
-                        // The code in this method will be executed when the respective View is clicked on.
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, className);
-                            startActivity(intent);
-                        }
-                    });
-        }
     }
 }

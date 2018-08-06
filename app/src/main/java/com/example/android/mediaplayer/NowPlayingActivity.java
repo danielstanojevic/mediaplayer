@@ -24,9 +24,9 @@ public class NowPlayingActivity extends AppCompatActivity {
             songTitle = extras.getString("songTitle");
 
             TextView nowPlayingTitleView = findViewById(R.id.nowPlayingSongTitle);
-            nowPlayingTitleView.setText(songTitle);
+            nowPlayingTitleView.setText(getString(R.string.media_title, songTitle));
             TextView nowPlayingArtistView = findViewById(R.id.nowPlayingSongArtist);
-            nowPlayingArtistView.setText(songArtist);
+            nowPlayingArtistView.setText(getString(R.string.media_artist,songArtist));
             Toast.makeText(this, "Now Playing...", Toast.LENGTH_SHORT).show();
         }
     }

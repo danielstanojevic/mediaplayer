@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MediaPlayer</string>
+    <string name="now_playing">Now Playing...</string>
+    <string name="media_player">Media Player</string>
+    <string name="media_title">Title: %1$s</string>
+    <string name="media_artist">Artist: %1$s</string>
 </resources>
