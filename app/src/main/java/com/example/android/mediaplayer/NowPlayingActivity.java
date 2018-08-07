@@ -8,6 +8,9 @@ import android.widget.Toast;
 
 public class NowPlayingActivity extends AppCompatActivity {
 
+    private static final String SONG_TITLE = "songTitle";
+    private static final String SONG_ARTIST = "songArtist";
+
     String songTitle;
     String songArtist;
 
@@ -20,14 +23,14 @@ public class NowPlayingActivity extends AppCompatActivity {
         Bundle extras = nowPlayingIntent.getExtras();
 
         if (extras != null) {
-            songArtist = extras.getString("songArtist");
-            songTitle = extras.getString("songTitle");
+            songArtist = extras.getString(SONG_ARTIST);
+            songTitle = extras.getString(SONG_TITLE);
 
             TextView nowPlayingTitleView = findViewById(R.id.nowPlayingSongTitle);
             nowPlayingTitleView.setText(getString(R.string.media_title, songTitle));
             TextView nowPlayingArtistView = findViewById(R.id.nowPlayingSongArtist);
             nowPlayingArtistView.setText(getString(R.string.media_artist,songArtist));
-            Toast.makeText(this, "Now Playing...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.now_playing, Toast.LENGTH_SHORT).show();
         }
     }
 }

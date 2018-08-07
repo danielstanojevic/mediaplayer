@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
-import static android.widget.AdapterView.*;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String SONG_TITLE = "songTitle";
+    private static final String SONG_ARTIST = "songArtist";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Create an arrayList of
         final ArrayList<Song> songs = new ArrayList<Song>();
-        songs.add(new Song("My Jam","Daniel"));
-        songs.add(new Song("title", "artist"));
-        songs.add(new Song("three", "tolookosu"));
-        songs.add(new Song("four", "oyyisa"));
-        songs.add(new Song("five", "massokka"));
-        songs.add(new Song("six", "temmokka"));
-        songs.add(new Song("seven", "kenekaku"));
-        songs.add(new Song("eight", "kawinta"));
-        songs.add(new Song("nine", "wo'e"));
-        songs.add(new Song("ten", "na'aacha"));
+        songs.add(new Song("Just Be", "Tiesto"));
+        songs.add(new Song("Promises", "Andain"));
+        songs.add(new Song("Voodoo People", "The Prodigy"));
+        songs.add(new Song("Halcyon & On & On", "Orbital"));
+        songs.add(new Song("One Love", "The Prodigy"));
+        songs.add(new Song("Cowgirl", "Underworld"));
+        songs.add(new Song("Atom Bomb", "Fluke"));
+        songs.add(new Song("A Dream Within A Dream", "Dreadzone"));
+        songs.add(new Song("The Saint", "Orbital"));
+        songs.add(new Song("Out of My Mind", "Duran Duran"));
 
         final SongAdapter adapter = new SongAdapter(this, songs);
         ListView listView = findViewById(R.id.list);
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
                 Song currentSong = songs.get(index);
                 Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
-                nowPlayingIntent.putExtra("songTitle", currentSong.getSongTitle());
-                nowPlayingIntent.putExtra("songArtist", currentSong.getSongArtist());
+                nowPlayingIntent.putExtra(SONG_TITLE, currentSong.getSongTitle());
+                nowPlayingIntent.putExtra(SONG_ARTIST, currentSong.getSongArtist());
                 startActivity(nowPlayingIntent);
             }
         });

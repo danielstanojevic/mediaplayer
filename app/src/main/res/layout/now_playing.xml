@@ -10,28 +10,28 @@
         android:id="@+id/nowPlayingSongArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_marginStart="@dimen/space"
+        android:layout_marginTop="@dimen/space"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nowPlayingSongTitle"
-        tools:text="artist" />
+        tools:text="@string/artist_placeholder" />
 
     <TextView
         android:id="@+id/nowPlayingSongTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_marginStart="@dimen/space"
+        android:layout_marginTop="@dimen/space"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="title" />
+        tools:text="@string/title_placeholder" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,32 +41,32 @@
             android:id="@+id/skipPrevButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/space"
+            android:layout_marginRight="@dimen/space"
             android:src="@drawable/ic_skip_previous_black_24dp" />
 
         <ImageButton
             android:id="@+id/fastRewindButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/space"
+            android:layout_marginRight="@dimen/space"
             android:src="@drawable/ic_fast_rewind_black_24dp" />
 
         <ImageButton
             android:id="@+id/pauseButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/space"
+            android:layout_marginRight="@dimen/space"
             android:src="@drawable/ic_pause_circle_outline_black_24dp" />
 
         <ImageButton
             android:id="@+id/fastForwardButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/space"
+            android:layout_marginRight="@dimen/space"
             android:src="@drawable/ic_fast_forward_black_24dp" />
 
         <ImageButton

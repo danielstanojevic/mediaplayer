@@ -1,7 +1,6 @@
 package com.example.android.mediaplayer;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -51,7 +50,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         Song currentSong = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID miwokWord
-        TextView titleTextView = (TextView) listItemView.findViewById(R.id.songTitle);
+        TextView titleTextView = listItemView.findViewById(R.id.songTitle);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         if (currentSong != null) {
@@ -59,7 +58,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         }
 
         // Find the TextView in the list_item.xml layout with the ID defaultWord
-        TextView artistTextView = (TextView) listItemView.findViewById(R.id.songArtist);
+        TextView artistTextView = listItemView.findViewById(R.id.songArtist);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         if (currentSong != null) {
@@ -72,28 +71,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
         // set the image to iconView
         //iconView.setImageResource(currentAndroidFlavor.getImageResourceId());
 
-
-
-        setCustomOnClickListener(R.layout.list_item, NowPlayingActivity.class, listItemView);
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
-    }
-    public void setCustomOnClickListener(int resourceID, final Class className, View listItemView) {
-        // Find the View that shows the numbers category
-        View view = listItemView.findViewById(resourceID);
-
-        // Set a click listener on that View
-        if (view != null) {
-            view.setOnClickListener(
-                    new View.OnClickListener() {
-                        // The code in this method will be executed when the respective View is clicked on.
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(view.getContext(), className);
-                            view.getContext().startActivity(intent);
-                        }
-                    });
-        }
     }
 }

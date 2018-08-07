@@ -4,4 +4,6 @@
     <string name="media_player">Media Player</string>
     <string name="media_title">Title: %1$s</string>
     <string name="media_artist">Artist: %1$s</string>
+    <string name="title_placeholder">title</string>
+    <string name="artist_placeholder">artist</string>
 </resources>
